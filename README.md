@@ -23,7 +23,8 @@
 - [ ] ... create a color palette with existing colors.
 - [x] ... switch color code display between `hex` and `rgb`.
 - [ ] ... filter colors by `dominant`.
-- [ ] ... search a color by its `name`.
+- [x] ... search a color by its `name`.
+- [x] ... reset filters.
 
 ## Site structure
 

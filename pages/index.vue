@@ -3,7 +3,7 @@
     <Sidebar />
     <section>
       <Color
-        v-for="(color, index) in colors"
+        v-for="(color, index) in filteredColors"
         :key="index"
         :color="color"
         :style="`background-color: ${color.code.hex}`"
@@ -21,9 +21,11 @@ export default {
     Color,
     Sidebar
   },
-  data () {
-    return {
-      colors: this.$store.state.colors
+  computed: {
+    filteredColors() {
+      return this.$store.state.colors.filter(color => {
+        return color.name.toLowerCase().includes(this.$store.state.search.toLowerCase())
+      })
     }
   }
 }

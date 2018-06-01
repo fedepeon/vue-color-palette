@@ -1,7 +1,7 @@
 <template lang="html">
   <aside>
     <h3>Search color by name</h3>
-    <input type="search" placeholder="Caribbean blue...">
+    <input v-model="search" type="search" placeholder="Caribbean blue...">
 
     <h3>Filter by dominant color</h3>
     <ul>
@@ -15,21 +15,40 @@
     <h3>Switch color code display</h3>
     <form>
       <label for="code-hex">Hex</label>
-      <input @input="switchColorMode" type="radio" name="color-code" id="code-hex" value="hex" checked="checked">
+      <input v-model="colorMode" type="radio" name="color-code" id="code-hex" value="hex" checked="checked">
 
       <label for="code-rgb">RGB</label>
-      <input @input="switchColorMode" type="radio" name="color-code" id="code-rgb" value="rgb">
+      <input v-model="colorMode" type="radio" name="color-code" id="code-rgb" value="rgb">
     </form>
 
+    <button @click="resetFilters" type="button" name="button">Reset filters</button>
   </aside>
 </template>
 
 <script type="text/javascript">
   export default {
+    computed: {
+      colorMode: {
+        get() {
+          return this.$store.state.colorMode
+        },
+        set(newColorMode) {
+          this.$store.commit('updateColorMode', newColorMode)
+        }
+      },
+      search: {
+        get() {
+          return this.$store.state.search
+        },
+        set(newSearch) {
+          this.$store.commit('updateSearch', newSearch)
+        }
+      }
+    },
     methods: {
-      switchColorMode(event) {
-        const newColorMode = event.target.value
-        this.$store.commit('switchColorMode', newColorMode)
+      resetFilters() {
+        this.$store.commit('updateColorMode', 'hex')
+        this.search = ''
       }
     }
   }

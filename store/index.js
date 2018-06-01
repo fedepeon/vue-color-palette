@@ -4,6 +4,8 @@ const createStore = () => {
   return new Vuex.Store({
     state: {
       colorMode: 'hex',
+      search: '',
+      filteredColors: [],
       nav: [
         {
           content: 'Home',
@@ -78,8 +80,11 @@ const createStore = () => {
       ]
     },
     mutations: {
-      switchColorMode (state, newColorMode) {
+      updateColorMode (state, newColorMode) {
         state.colorMode = newColorMode
+      },
+      updateSearch (state, newSearch) {
+        state.search = newSearch
       }
     }
   })
