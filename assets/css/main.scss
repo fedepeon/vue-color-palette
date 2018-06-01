@@ -1,0 +1,6 @@
+@import 'vars';
+
+body {
+  background: darken($color-white, 2%);
+  font-family: $font-family;
+}

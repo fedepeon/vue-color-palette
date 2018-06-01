@@ -5,21 +5,9 @@ const createStore = () => {
     state: {
       colorMode: 'hex',
       search: '',
+      paletteSize: 4,
+      palette: [],
       filteredColors: [],
-      nav: [
-        {
-          content: 'Home',
-          href: '/'
-        },
-        {
-          content: 'Palette',
-          href: '/palette'
-        },
-        {
-          content: 'About',
-          href: '/about'
-        }
-      ],
       colors: [
         {
           name: 'Cobalt blue',

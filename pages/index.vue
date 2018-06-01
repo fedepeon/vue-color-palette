@@ -6,7 +6,6 @@
         v-for="(color, index) in filteredColors"
         :key="index"
         :color="color"
-        :style="`background-color: ${color.hex}`"
       />
     </section>
   </main>
@@ -30,3 +29,28 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '~/assets/css/vars.scss';
+
+main {
+  margin-top: 70px;
+  padding: 20px;
+
+  section {
+    background: $color-white;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: 1fr;
+    padding: 20px;
+
+    @media(min-width: 600px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media(min-width: 850px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+</style>

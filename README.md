@@ -16,9 +16,9 @@
 ## User stories:
 
 **As a user, I want to**:
-- [ ] ... always have a look at my current color palette.
-- [ ] ... add new colors to the colors list.
-- [ ] ... create a color palette with existing colors.
+- [x] ... always have a look at my current color palette.
+- [x] ... add new colors to the colors list.
+- [x] ... create a color palette with existing colors.
 - [x] ... switch color code display between `hex` and `rgb`.
 - [ ] ... filter colors by `dominant`.
 - [x] ... search a color by its `name`.

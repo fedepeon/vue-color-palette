@@ -17,6 +17,11 @@ module.exports = {
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+  css: [
+    { src:'@/assets/css/vars.scss', lang:'scss' },
+    { src:'@/assets/css/main.scss', lang:'scss' },
+    { src:'@/assets/css/reset.css', lang:'css' }
+  ],
   /*
   ** Build configuration
   */

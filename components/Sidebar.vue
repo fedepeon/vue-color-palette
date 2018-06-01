@@ -1,37 +1,31 @@
 <template lang="html">
   <aside>
-    <h3>Search color by name</h3>
-    <input v-model="search" type="search" placeholder="Caribbean blue...">
+    <div class="aside-section">
+      <h2>Search color</h2>
+      <input v-model="search" type="search" placeholder="Caribbean blue...">
+    </div>
 
-    <!-- <h3>Filter by dominant color</h3>
-      <div v-for="(dominantColor, index) in $store.state.dominantColors" :key="index">
-        <label :for="dominantColor.toLowerCase()">{{ dominantColor }}</label>
-        <input
-          @input="filterByDominantColors"
-          v-model="selectedDominantColors"
-          :id="dominantColor.toLowerCase()"
-          type="checkbox"
-          name="dominant-color"
-          :value="dominantColor.toLowerCase()"
-        >
-      </div> -->
+    <div class="aside-section">
+      <h2>Switch code display</h2>
+      <form>
+        <label for="code-hex">Hex</label>
+        <input v-model="colorMode" type="radio" name="color-code" id="code-hex" value="hex" checked="checked">
 
-    <h3>Switch color code display</h3>
-    <form>
-      <label for="code-hex">Hex</label>
-      <input v-model="colorMode" type="radio" name="color-code" id="code-hex" value="hex" checked="checked">
+        <label for="code-rgb">RGB</label>
+        <input v-model="colorMode" type="radio" name="color-code" id="code-rgb" value="rgb">
+      </form>
+    </div>
 
-      <label for="code-rgb">RGB</label>
-      <input v-model="colorMode" type="radio" name="color-code" id="code-rgb" value="rgb">
-    </form>
-
-    <button @click="resetFilters" type="button" name="button">Reset filters</button>
+    <button @click="resetFilters" :disabled="isReset" type="button" name="button">Reset filters</button>
   </aside>
 </template>
 
 <script type="text/javascript">
   export default {
     computed: {
+      isReset() {
+        return this.search == '' && this.colorMode == 'hex'
+      },
       colorMode: {
         get() {
           return this.$store.state.colorMode
@@ -57,3 +51,53 @@
     }
   }
 </script>
+
+<style lang="scss" scoped>
+@import '~/assets/css/vars.scss';
+
+aside {
+  background: $color-white;
+  margin: 0 0 20px 0;
+  padding: 20px;
+
+  .aside-section {
+    margin: 0 0 40px 0;
+
+    h2 {
+      font-family: $font-family;
+      font-size: 1.2em;
+      font-weight: 400;
+      margin: 0 0 20px 0;
+    }
+
+    input[type="search"] {
+      -webkit-appearance: none;
+      border: none;
+      border-bottom: 1px solid darken($color-white, 10%);
+      font-size: 1em;
+      padding: 5px 0;
+      width: 100%;
+
+      &:focus {
+        border-bottom-color: $color-main;
+        outline: none;
+      }
+    }
+  }
+
+  button {
+    background: $color-main;
+    border: none;
+    border-radius: $border-radius;
+    color: $color-white;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 15px 30px;
+    width: 100%;
+
+    &:disabled {
+      background: darken($color-white, 20%);
+    }
+  }
+}
+</style>
