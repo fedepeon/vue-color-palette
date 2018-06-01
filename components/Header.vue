@@ -1,6 +1,6 @@
 <template lang="html">
   <header>
-    <h1>Color palette</h1>
+    <h1>Colette</h1>
     <nav>
       <ul>
         <li v-for="(link, index) in $store.state.nav" :key='index'>

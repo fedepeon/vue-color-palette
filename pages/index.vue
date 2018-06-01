@@ -6,7 +6,7 @@
         v-for="(color, index) in filteredColors"
         :key="index"
         :color="color"
-        :style="`background-color: ${color.code.hex}`"
+        :style="`background-color: ${color.hex}`"
       />
     </section>
   </main>

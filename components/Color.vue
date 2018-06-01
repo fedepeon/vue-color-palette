@@ -2,7 +2,7 @@
   <div class="color-card">
     <h2>{{ color.name }}</h2>
     <span class="color-code">
-      {{ $store.state.colorMode == 'hex' ? color.code.hex : color.code.rgb }}
+      {{ $store.state.colorMode == 'hex' ? color.hex : color.rgb }}
     </span>
   </div>
 </template>

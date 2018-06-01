@@ -7,10 +7,8 @@
 ```javascript
 {
   name: 'Ultramarine blue',
-  code: {
-    hex: '#3780ff',
-    rgb: 'rgb(55, 128, 255)'
-  },
+  hex: '#3780ff',
+  rgb: 'rgb(55, 128, 255)',
   dominant: 'blue'
 }
 ```

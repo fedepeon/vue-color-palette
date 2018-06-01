@@ -3,14 +3,18 @@
     <h3>Search color by name</h3>
     <input v-model="search" type="search" placeholder="Caribbean blue...">
 
-    <h3>Filter by dominant color</h3>
-    <ul>
-      <li>Blue</li>
-      <li>Red</li>
-      <li>Green</li>
-      <li>Yellow</li>
-      <li>Gray</li>
-    </ul>
+    <!-- <h3>Filter by dominant color</h3>
+      <div v-for="(dominantColor, index) in $store.state.dominantColors" :key="index">
+        <label :for="dominantColor.toLowerCase()">{{ dominantColor }}</label>
+        <input
+          @input="filterByDominantColors"
+          v-model="selectedDominantColors"
+          :id="dominantColor.toLowerCase()"
+          type="checkbox"
+          name="dominant-color"
+          :value="dominantColor.toLowerCase()"
+        >
+      </div> -->
 
     <h3>Switch color code display</h3>
     <form>
