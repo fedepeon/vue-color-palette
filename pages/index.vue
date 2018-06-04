@@ -1,13 +1,13 @@
 <template lang="html">
   <main>
     <Sidebar />
-    <section>
-      <Color
-        v-for="(color, index) in filteredColors"
-        :key="index"
-        :color="color"
-      />
-    </section>
+      <transition-group name="fade" tag="section">
+        <Color
+          v-for="(color, index) in filteredColors"
+          :key="index"
+          :color="color"
+        />
+      </transition-group>
   </main>
 </template>
 
@@ -44,12 +44,24 @@ main {
     grid-template-columns: 1fr;
     padding: 20px;
 
-    @media(min-width: 600px) {
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity .2s, transform 0.4s;
+    }
+    .fade-enter, .fade-leave-to {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    @media(min-width: 500px) {
       grid-template-columns: 1fr 1fr;
     }
 
-    @media(min-width: 850px) {
+    @media(min-width: 900px) {
       grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media(min-width: 1100px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
 }

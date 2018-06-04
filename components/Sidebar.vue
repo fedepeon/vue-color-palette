@@ -6,14 +6,14 @@
     </div>
 
     <div class="aside-section">
-      <h2>Switch code display</h2>
-      <form>
-        <label for="code-hex">Hex</label>
+      <h2>Switch color code</h2>
+      <div class="switcher">
         <input v-model="colorMode" type="radio" name="color-code" id="code-hex" value="hex" checked="checked">
+        <label for="code-hex">HEX</label>
 
-        <label for="code-rgb">RGB</label>
         <input v-model="colorMode" type="radio" name="color-code" id="code-rgb" value="rgb">
-      </form>
+        <label for="code-rgb">RGB</label>
+      </div>
     </div>
 
     <button @click="resetFilters" :disabled="isReset" type="button" name="button">Reset filters</button>
@@ -73,14 +73,57 @@ aside {
     input[type="search"] {
       -webkit-appearance: none;
       border: none;
-      border-bottom: 1px solid darken($color-white, 10%);
+      border-bottom: 2px solid darken($color-white, 10%);
       font-size: 1em;
       padding: 5px 0;
+      transition: border 0.3s ease;
       width: 100%;
 
       &:focus {
         border-bottom-color: $color-main;
         outline: none;
+      }
+
+      &::-webkit-input-placeholder {
+        color: darken($color-white, 10%);
+      }
+      &::-moz-placeholder {
+        color: darken($color-white, 10%);
+      }
+      &:-ms-input-placeholder {
+        color: darken($color-white, 10%);
+      }
+      &:-moz-placeholder {
+        color: darken($color-white, 10%);
+      }
+    }
+  }
+
+  .switcher {
+    display: flex;
+    justify-content: space-between;
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    input[type="radio"]:checked + label {
+      background: $color-main;
+      color: $color-white;
+    }
+
+    label {
+      background: $color-white;
+      border: 2px solid $color-main;
+      border-radius: $border-radius;
+      flex: 1;
+      font-family: $font-family;
+      padding: 10px 20px;
+      text-align: center;
+      transition: background 0.3s ease, color 0.3s ease;
+
+      &:last-child {
+        margin-left: 20px;
       }
     }
   }
@@ -96,8 +139,18 @@ aside {
     width: 100%;
 
     &:disabled {
-      background: darken($color-white, 20%);
+      background: darken($color-white, 10%);
+
+      &:hover {
+        cursor: not-allowed;
+      }
     }
+  }
+
+  @media (min-width: 768px) {
+    float: left;
+    margin: 0 20px 20px 0;
+    width: 250px;
   }
 }
 </style>
