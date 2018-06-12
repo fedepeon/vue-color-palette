@@ -2,39 +2,26 @@
 
 > Create a color palette using Vue & Nuxt
 
-## Color model
+## Todo
 
-```javascript
-{
-  name: 'Ultramarine blue',
-  hex: '#3780ff',
-  rgb: 'rgb(55, 128, 255)',
-  dominant: 'blue'
-}
-```
-
-## User stories:
-
-**As a user, I want to**:
-- [x] ... always have a look at my current color palette.
-- [x] ... add new colors to the colors list.
-- [x] ... create a color palette with existing colors.
-- [x] ... switch color code display between `hex` and `rgb`.
-- [ ] ... filter colors by `dominant`.
-- [x] ... search a color by its `name`.
-- [x] ... reset filters.
-
-## Site structure
-
-**Layout**:
-- `<header>`: navigation (home, palette, about)
-- `<aside>`: filters by dominant, search by name, switch color code display (only visible on `/`).
-- `<main>`: colors list, palette.
-
-**Pages**:
-- `/`: see the list of all colors.
-- `/palette`: see my color palette.
-- `/about`: about author, contact...
+- [ ] Filter colors by `dominantColor`
+- [ ] Display something when no colors match search
+- [ ] Redesign action buttons
+- [ ] Remove color from palette
+- [ ] Add palette menu (export, view)
+- [ ] Export color to `json` format:
+  ```js
+  {
+    hex: "#FFFFFF",
+    rgb: "rgb(255, 255, 255)",
+    name: "White"
+  },
+  {
+    hex: "#000000",
+    rgb: "rgb(0, 0, 0)",
+    name: "Black"
+  }
+  ```
 
 ## Build Setup
 

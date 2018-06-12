@@ -85,29 +85,32 @@ export default {
     }
   }
 
-  button {
-    align-items: center;
-    -webkit-appearance: none;
-    background: $color-white;
-    border: 1px solid darken($color-white, 10%);
-    border-radius: 50%;
-    display: flex;
-    height: 25px;
-    position: absolute;
-    width: 25px;
+  .color-card-actions {
 
-    svg {
-      width: 10px;
-    }
+    button {
+      align-items: center;
+      -webkit-appearance: none;
+      background: $color-white;
+      border: 1px solid darken($color-white, 10%);
+      border-radius: 50%;
+      display: flex;
+      height: 25px;
+      position: absolute;
+      width: 25px;
 
-    &.add {
-      right: 10px;
-      top: 10px;
-    }
+      svg {
+        width: 10px;
+      }
 
-    &.copy {
-      right: 10px;
-      top: 45px;
+      &.add {
+        right: 10px;
+        top: 10px;
+      }
+
+      &.copy {
+        right: 10px;
+        top: 45px;
+      }
     }
   }
 

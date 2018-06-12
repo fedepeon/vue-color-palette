@@ -16,7 +16,14 @@
       </div>
     </div>
 
-    <button @click="resetFilters" :disabled="isReset" type="button" name="button">Reset filters</button>
+    <div class="aside-section">
+      <button @click="resetFilters" :disabled="isReset" type="button" name="button">Reset filters</button>
+    </div>
+
+    <div class="aside-section">
+      <h2>About this</h2>
+      <p>This is a Vuejs learning project made by <a href="https://twitter.com/bellanger_q" target="_blank" rel="noopener">Quentin</a>. It's open source and the code is available <a href="https://github.com/bellangerq/vue-color-palette" target="_blank" rel="noopener">here</a>.</p>
+    </div>
   </aside>
 </template>
 
@@ -72,15 +79,15 @@ aside {
 
     input[type="search"] {
       -webkit-appearance: none;
-      border: none;
-      border-bottom: 2px solid darken($color-white, 10%);
+      border: 2px solid darken($color-white, 10%);
+      border-radius: 4px;
       font-size: 1em;
-      padding: 5px 0;
+      padding: 10px 20px;
       transition: border 0.3s ease;
       width: 100%;
 
       &:focus {
-        border-bottom-color: $color-main;
+        border-color: $color-main;
         outline: none;
       }
 
@@ -96,6 +103,44 @@ aside {
       &:-moz-placeholder {
         color: darken($color-white, 10%);
       }
+    }
+
+    button {
+      background: $color-main;
+      border: none;
+      border-radius: $border-radius;
+      color: $color-white;
+      font-size: 1em;
+      font-weight: 600;
+      padding: 15px 30px;
+      width: 100%;
+
+      &:disabled {
+        background: darken($color-white, 10%);
+
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    p {
+      font-family: $font-family;
+      line-height: 1.4em;
+
+      a {
+        color: $color-main;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &:last-child {
+      margin: 0;
     }
   }
 
@@ -124,25 +169,6 @@ aside {
 
       &:last-child {
         margin-left: 20px;
-      }
-    }
-  }
-
-  button {
-    background: $color-main;
-    border: none;
-    border-radius: $border-radius;
-    color: $color-white;
-    font-size: 1em;
-    font-weight: 600;
-    padding: 15px 30px;
-    width: 100%;
-
-    &:disabled {
-      background: darken($color-white, 10%);
-
-      &:hover {
-        cursor: not-allowed;
       }
     }
   }
